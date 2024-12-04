@@ -13,7 +13,7 @@ ____________________________________________________
 (Afiliated Links:)
 
 for _Waveshare RP2040 LoRa_:
-[Aliexpress?](https://s.click.aliexpress.com/e/_DmcgSyp) , [Waveshare?](https://www.lilygo.cc/products/t-echo?bg_ref=M1lDRSwoKN)
+[Aliexpress](https://s.click.aliexpress.com/e/_DmGeyrn) , [Waveshare](https://www.waveshare.com/rp2040-lora.htm?sku=26543)
 
 ____________________________________________________
 
