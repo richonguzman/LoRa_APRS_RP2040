@@ -1,6 +1,6 @@
 # LoRa APRS Firmare for Raspberry Pico (RP2040) based boards.
 
-[LoRa APRS Waveshare RP2040 Digipeater](https://github.com/richonguzman/LoRa_APRS_RP2040/tree/main/LoRa_APRS_Waveshare_LoRa_Digipeater) with Waveshare RP2040 LoRa board
+[LoRa APRS Waveshare RP2040 Digipeater](https://github.com/richonguzman/LoRa_APRS_RP2040/tree/main/LoRa_APRS_Waveshare_RP2040_Digipeater) with Waveshare RP2040 LoRa board
 
 
 ## You can support this project to continue to grow:
