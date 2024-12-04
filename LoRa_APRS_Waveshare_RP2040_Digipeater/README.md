@@ -1,4 +1,4 @@
-# LoRa APRS Digipeater for @RAKWireless WisBlock 4631
+# LoRa APRS Digipeater for Waveshare RP2040 LoRa
 
 ## You can support this project to continue to grow:
 
@@ -7,22 +7,17 @@
 
 ____________________________________________________
 
-(Afiliated Link for _RAK Wireless modules_)
-- WisBlock Base (RAK19007) or (RAK19003)
-- Nordic NRF52840 Module (RAK4631 (arduino))
-- BME680 Sensor (RAK1906)
+(Afiliated Links:)
 
-
-use this [link](https://url887.kickbooster.me/ls/click?upn=u001.rQqRChuldMyo9N3mcAI-2Bf2HF4aYB25xf7FmEbkTD-2BJPmW97aq6-2B-2FsJ-2Bmlj5qFSiRdEpe_HprRZeuCAf4z5NFKRFYVqVTXOS-2BXsX0r3A0LUEEvoKoVT4iXCw6WQzI4ENLL8PaHnA5P-2FfDxuqrI3BcZFumGrXLnv2loo9gjcgIq9nFjxNVnpvRELoEngdGoZ2c6LLp9d5dG2XTKk392BOczHQ4-2FI0zKhFh-2Bb0WE4jPKmIqiFNgFcgzMUX7xZbXw0clvgX1O73KOkJ8DxmsiqLmjWPqedJyfiYfDYsb-2Bcnj6SBY-2FQluqo3JG-2BszK7JDHe-2BUxc-2FjfIDyALruYuOxxrU0z4dO0-2Fw-3D-3D) and use this code for a % discount: **NGEQHU**
+for _Waveshare RP2040 LoRa_:
+[Aliexpress](https://s.click.aliexpress.com/e/_DmGeyrn) , [Waveshare](https://www.waveshare.com/rp2040-lora.htm?sku=26543)
 
 ____________________________________________________
 
 
 ## Instructions:
 
-## 0) Mount RAK4631 into RAK19007 (or RAK19003).
-
-## 0.1) (OPTIONAL) Mount BME680 Sensor into SLOT-C
+## 0) Connect Waveshare RP2040 ribbon cable between RP2040-LoRa module and USB-C connector.
 
 ## 1) Prepare the Configuration info: you have to copy two strings into __Serial__ : (A) Digipeater Configuration and (B) LoRa Configuration. Prepare this two Strings before flashing the board.
 
@@ -30,23 +25,16 @@ A) On the first Reboot (as Digipeater won't find any configuration) you should e
 
 callsign,digiMode,symbol,overlay,comment,latitude,longitude,sendBatteryTelemetry,beaconInternal,ultraEcoMode
 
-example: AB1CDE-11,1,#,L,RAK4631-Digipeater,0.0000000,0.0000000,Y,15,Y,N
+example: AB1CDE-11,1,#,L,Waveshare_RP2040-Digipeater,0.0000000,0.0000000,15
 
 - callsign              = replace with your Valid Ham Callsign (in UpperCase).
 - digiMode              = 1 for repeating "WIDE1-1", 2 for "WIDE2-n"
 - symbol                = # ("#" is recommended)
 - overlay               = L ("L" is recommended)
-- comment               = RAK4631-Digipeater (don't use any *coma* in comment text)
+- comment               = Waveshare_RP2040-Digipeater (don't use any *coma* in comment text)
 - latitude              = in degrees and better to have 7 decimals
 - longitude             = in degrees and better to have 7 decimals
-- sendBatteryTelemetry  = Y ("Y" for yes, "N" for no)
 - beaconInterval        = 15 (minutes)
-- ultraEcoMode          = Y ("Y" for yes, "N" for no) (This makes the board sleep until LoRa Packet Rx using just 7mA at idle instead of 13.4mA)
-- wxSensorActive        = N ("Y" for yes, "N" for no) (This enable BME680 Module and send Wx Telemetry Data: Temperature, Humidity, Pressure)
-
-NOTE: if "wxSensorActive" is "Y" :
-- RAK Module won't enter into ultraEcoMode as the BME680 would need the board to stay awake.
-- Battery Voltage won't be sended in encoded Telemetry (as aprs-webpages wont process Battery encoded Telemetry in the same Wx Telemetry Packet.)
 
 B) Prepare LoRa Configuration info:
 
@@ -61,9 +49,9 @@ example: 433.775,12,125.0,5,22
 - Power           = 22 (dBm) is max for SX1262 in Rak 4631 Module
 
 
-## 2) Press two times reset button to enter Virtual Disk Bootloader Mode: "RAK4631" external disc should appear in your PC/MAC/Linux Desktop.
+## 2) Press and keep pressing BOOT button. Press RESET button and release RESET button. Now release BOOT button ("RPI-RP2" external disc should appear in your PC/MAC/Linux Desktop).
 
-## 3) Drag "firmware_RAK4631_digipeater.uf2" file into the folder/external disk "RAK4631". It should reboot right away and you should get into any app that let you enter __Serial__ commands (Arduino IDE, VSCODE ...)
+## 3) Drag "firmware_Waveshare_RP2040_Digipeater.uf2" file into the folder/external disk "RPI-RP2". It should reboot right away and you should get into any app that let you enter __Serial__ commands (Arduino IDE, VSCODE ...)
 
 ## 4) The initial setup will ask you to paste the string sentences created in __(A)__ first and then on another line __(B)__.
 
@@ -72,14 +60,9 @@ example: 433.775,12,125.0,5,22
 ## 6) After the sucess in writing configuration , the station will reboot and start right away.
 
    
-if you want to delete previous configuration , drag "NRF52840_DeleteConfig.uf2" into the folder/virtual disk when boards is in boot loader mode.
+if you want to delete previous configuration , drag "RP2040_DeleteConfig.uf2" into the folder/virtual disk when boards is in boot loader mode.
 
-- 2024.11.04 Added RAK1906 BME680 Sensor support.
-- 2024.10.24 Ultra EcoMode added (uses 7mA at idle waiting for LoRa Packet instead of 13.4mA when not sleeping).
-- 2024.10.16 Code improved and minor bugs.
-- 2024.09.18 Battery Calculations Fix and full Configuration for Station and LoRa settings added.
-- 2024.09.17 Battery Pins correction proposal
-- 2024.09.15 Beta Test Firmware.
+- 2024.11.04 First Test Firmware.
 
 ___________________________________________________
 
